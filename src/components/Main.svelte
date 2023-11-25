@@ -2,9 +2,40 @@
 	import Step from './Step.svelte';
 
 	let steps = [
-		{ name: 'Pj 1', icon: 'fa-solid fa-cart-shopping', href: 'https://google.com' },
-		{ name: 'Pj 2', icon: 'fa-solid fa-cart-shopping', href: 'https://google.com' },
-		{ name: 'Pj 3', icon: 'fa-solid fa-cart-shopping', href: 'https://google.com' }
+		{
+			name: 'Xendit API Go Client',
+			icon: 'fa-solid fa-link',
+			href: 'https://github.com/xendit/xendit-go',
+			description: 'Xendit SDK, written in <strong class="text-violet-400">Golang</strong>.'
+		},
+		{
+			name: 'Backdoor.id',
+			icon: 'fa-solid fa-cart-shopping',
+			href: 'https://backdoor.id',
+			description:
+				'Web-based e-commerce with a bidding feature, built on <strong class="text-violet-400">Golang and Vue.js</strong>.'
+		},
+		{
+			name: 'Formula Financial Reporting',
+			icon: 'fa-solid fa-file-invoice',
+			href: '#',
+			description:
+				'Web-based financial reporting app written in <strong class="text-violet-400">Golang and Next.js</strong> with features for handling transactions (order, purchase, etc.), inventories management, reporting (income statement, etc.), and multi-users with specific authorizations.'
+		},
+		{
+			name: 'Go HTTP Test',
+			icon: 'fa-solid fa-vial',
+			href: 'https://github.com/slzhffktm/go-http-test',
+			description:
+				'A library for <strong class="text-violet-400">Golang</strong> which provides a convenient way to start a new HTTP server at a desired address and enables you to perform various HTTP testing scenarios with ease. This library is especially useful for writing unit tests and end-to-end tests for HTTP-based applications in Go.'
+		},
+		{
+			name: 'Wijayamotor.co',
+			icon: 'fa-solid fa-motorcycle',
+			href: 'http://wijayamotor.co',
+			description:
+				'Web-based secondhand motorcycle e-commerce. It consists of 3 parts: <strong class="text-violet-400">back-end</strong>, written in <strong class="text-violet-400">Golang</strong>; <strong class="text-violet-400">website</strong>, using <strong class="text-violet-400">vuestorefront template (in Vue.js)</strong>; and <strong class="text-violet-400">admin app</strong>, an Adnroid app written in <strong class="text-violet-400">Flutter</strong>.'
+		}
 	];
 
 	let benefits = [
@@ -65,34 +96,17 @@
 			target="_blank"
 			class="mx-auto -mb-4 -mt-10 flex items-center gap-2 rounded-md border border-solid border-white px-4 py-2 duration-200 hover:border-violet-700 sm:-mb-0"
 		>
-			<i class="fa-regular fa-circle-play"></i>
+			<i class="fab fa-github-alt"></i>
 			<p>Visit my GitHub</p>
 		</a>
 		<div class="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-10">
-			<Step step={steps[0]}>
-				<p>
-					Smoljames Store is a a merchanising store created with <strong class="text-violet-400"
-						>Next.js, Commerce.js, Stripe & Node.js + Express.js!</strong
-					> Commerce.js is a product CMS and Stripe is used for all transaction handling.
-				</p>
-			</Step>
-			<Step step={steps[1]}>
-				<p>
-					Ultimate Todos is a Full Stack <strong class="text-violet-400">Next.js</strong>,
-					<strong class="text-violet-400">Node.js + Express.js</strong>
-					& <strong class="text-violet-400">Firebase</strong> CRUD application that allows a user to
-					login, manage a tidy and efficacious todo list, and persist this information across devices.
-				</p>
-			</Step>
-			<Step step={steps[2]}>
-				<p>
-					The Pokédex is a <strong class="text-violet-400">SvelteKit & TailwindCSS</strong>
-					web application, hosted on
-					<strong class="text-violet-400">Netlify</strong>, that consumes and caches the
-					<strong class="text-violet-400">Pokémon API</strong>
-					to display all Pokémon information. Gotta catch them all!
-				</p>
-			</Step>
+			{#each steps as step, index}
+				<Step {step}>
+					<p>
+						{@html step.description}
+					</p>
+				</Step>
+			{/each}
 		</div>
 	</section>
 	<section
@@ -124,4 +138,5 @@
 			{/each}
 		</div>
 	</section>
+	<section id="contact"></section>
 </main>
